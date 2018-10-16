@@ -1,15 +1,27 @@
 # electron-render-service
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/msokk/electron-render-service.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/msokk/electron-render-service.svg?branch=master)](https://travis-ci.org/msokk/electron-render-service)
-[![](https://images.microbadger.com/badges/image/msokk/electron-render-service.svg)](http://microbadger.com/images/msokk/electron-render-service "Get your own image badge on microbadger.com")
-[![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://hub.docker.com/r/msokk/electron-render-service/)
-[![npm](https://img.shields.io/npm/v/electron-render-service.svg)](https://www.npmjs.com/package/electron-render-service)
-
 Simple PDF/PNG/JPEG render service, accepts webpage URL and returns the resource.
 
 Alternatively an HTML payload can be POST-ed.
 
+## This fork's purpose
+
+This fork was made in order to demonstrate how to use multiple buildpacks when pushing an application to Cloud Foundry.
+
+This example uses the apt and nodejs buildpacks see [manifest.yml](./manifest.yml) in the `buildpacks:` section.
+
+The [apt.yml](./apt.yml) controls what packages should be installed when the droplet is staged. 
+
+The [start.sh](./start.sh) is used to set some environment variables and to run `xvfb-run`.
+
+## Pushing to Cloud Foundry
+
+After targeting a foundation with the necessary buildpacks installed, just push!
+
+```bash
+$ cf push -f manifest.yml
+```
+ 
 ## Docker usage
 
 Based on official [Debian Jessie](https://hub.docker.com/_/debian/) image, uses latest [electron](https://github.com/atom/electron).

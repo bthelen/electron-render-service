@@ -1,0 +1,11 @@
+---
+applications:
+- name: electron-test
+  memory: 512M
+  instances: 1
+  command: ./start.sh
+  buildpacks: 
+    - apt_buildpack
+    - nodejs_buildpack
+  env:
+    RENDERER_ACCESS_KEY: test
